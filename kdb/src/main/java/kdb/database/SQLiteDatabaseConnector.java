@@ -3,18 +3,24 @@ package kdb.database;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public final class SQLiteDatabaseConnector {
+/**
+ * Class for a connection to a SQLite database.
+ * 
+ * @author Zarfius94
+ * @version 1.0
+ *
+ */
+public class SQLiteDatabaseConnector implements DatabaseConnector {
 
-	private static Connection c = null;
+	private Connection c;
+	private static SQLiteDatabaseConnector sig;
 
-	/**
-	 * Establishes a connection to the database that is specified by the given path.
-	 * 
-	 * @param path
-	 *            Path to the file of the SQLite database file.
-	 * @return if successful the connection to the database, else null
-	 */
-	public static Connection getConnection(String path) {
+	private SQLiteDatabaseConnector() {
+		c = null;
+	}
+
+	@Override
+	public Connection getConnection(String path) {
 		try {
 			Class.forName("org.sqlite.JDBC");
 			c = DriverManager.getConnection("jdbc:sqlite:" + path);
@@ -25,13 +31,16 @@ public final class SQLiteDatabaseConnector {
 		return c;
 	}
 
-	/**
-	 * Returns the last established connection. If the last attempt failed it returns null.
-	 * 
-	 * @return The last established connection, or null if the last try failed.
-	 */
-	public static Connection getLastConnection() {
+	@Override
+	public Connection getLastConnection() {
 		return c;
+	}
+
+	public static SQLiteDatabaseConnector getInstance() {
+		if (SQLiteDatabaseConnector.sig == null) {
+			SQLiteDatabaseConnector.sig = new SQLiteDatabaseConnector();
+		}
+		return SQLiteDatabaseConnector.sig;
 	}
 
 }
