@@ -1,7 +1,9 @@
-package kdb.database;
+package kdb.database.SQLite;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+
+import kdb.database.IDatabaseConnector;
 
 /**
  * Class for a connection to a SQLite database.
@@ -10,7 +12,7 @@ import java.sql.DriverManager;
  * @version 1.0
  *
  */
-public class SQLiteDatabaseConnector implements DatabaseConnector {
+public class SQLiteDatabaseConnector implements IDatabaseConnector {
 
 	private Connection c;
 	private static SQLiteDatabaseConnector sig;

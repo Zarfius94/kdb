@@ -2,7 +2,7 @@ package kdb.database;
 
 import java.sql.Connection;
 
-public interface DatabaseConnector {
+public interface IDatabaseConnector {
 
 	/**
 	 * Establishes a connection to the database that is specified by the given path.
