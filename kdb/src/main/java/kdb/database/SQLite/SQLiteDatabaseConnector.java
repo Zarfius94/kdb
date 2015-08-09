@@ -21,7 +21,6 @@ public class SQLiteDatabaseConnector implements IDatabaseConnector {
 		c = null;
 	}
 
-	@Override
 	public Connection getConnection(String path) {
 		try {
 			Class.forName("org.sqlite.JDBC");
@@ -33,7 +32,6 @@ public class SQLiteDatabaseConnector implements IDatabaseConnector {
 		return c;
 	}
 
-	@Override
 	public Connection getLastConnection() {
 		return c;
 	}
