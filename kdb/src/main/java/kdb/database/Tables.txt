@@ -1,0 +1,39 @@
+Tabelle Tutanden
+    - Matrikelnummer
+    - Vorname
+    - Nachname
+    - E-Mail-Adresse
+
+Aufgabe + max Punktzahl (normal und Bonus Aufteilung)
+    - Blatt 
+    - Aufgabe
+    - Normale Punkte
+    - Bonus Punkte
+    
+Korrekturhinweis mit Bepunktung
+    - id
+    - Bepunktung
+    - Notiz
+    
+Tutand - Korrekturhinweis (komplett abhängig)
+    - Matrikelnummer
+    - Korrekturid
+    - Aufgabe
+    - Blatt
+
+Flagzuordnung (komplett abhängig)
+    - Tutand
+    - Aufgabe
+    - Blatt
+    - Flag
+    - Notiz
+    
+Flagtabell
+    - id
+    - Flag
+    
+Hinweis (teilabhängig)
+    - id
+    - Notiz
+    - Blatt
+    - Aufgabe
